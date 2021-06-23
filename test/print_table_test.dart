@@ -1,4 +1,4 @@
-import 'package:print_table/tabulate.dart';
+import 'package:print_table/print_table.dart';
 import 'package:test/test.dart';
 
 void main() {
