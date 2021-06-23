@@ -1,6 +1,6 @@
 name: print_table
 description: A simple library to generate text-based table for console-printing.
-version: 1.0.0
+version: 1.0.1
 homepage: https://ardeviot.com
 
 environment:
