@@ -1,14 +1,14 @@
 String tabulate(List<List<String>> models, List<String> header) {
-  String retString = '';
-  int cols = header.length;
-  List<int> colLength = List(cols);
+  var retString = '';
+  var cols = header.length;
+  var colLength = List<int>.filled(cols, 0);
   if (models.any((model) => model.length != cols)) {
     throw Exception('Column\'s no. of each model does not match.');
   }
 
   //preparing colLength.
-  for (int i = 0; i < cols; i++) {
-    List<String> _chunk = [];
+  for (var i = 0; i < cols; i++) {
+    var _chunk = <String>[];
     _chunk.add(header[i]);
     for (var model in models) {
       _chunk.add(model[i]);
@@ -22,17 +22,17 @@ String tabulate(List<List<String>> models, List<String> header) {
   }
 
   void addRow(List<String> model, List<List<String>> row) {
-    List<String> l = [];
+    var l = <String>[];
     for (var i = 0; i < cols; i++) {
-      int max = colLength[i];
+      var max = colLength[i];
       l.add(fillSpace(max, model[i]));
     }
     row.add(l);
   }
 
-  List<List<String>> rowList = [];
+  var rowList = <List<String>>[];
   addRow(header, rowList);
-  List<String> topBar = List.generate(cols, (i) => '-' * colLength[i]);
+  var topBar = List<String>.generate(cols, (i) => '-' * colLength[i]);
   addRow(topBar, rowList);
   models.forEach((model) => addRow(model, rowList));
   rowList.forEach((row) {
